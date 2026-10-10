@@ -212,74 +212,79 @@
             padding: 0 20px; /* MUCHO MÁS ESPACIO para que la línea sobresalga */
         }
 
-        /* Contenedor de la línea de pintura */
+        /* Contenedor de la línea de pintura - forma de pincelada real con cola */
         .paint-line-container {
             position: absolute;
             top: 52%;
-            left: -25px;
-            right: -25px;
-            height: 0.95em;
+            left: -30px;
+            right: -30px;
+            height: 1.05em;
             transform: translateY(-50%);
             z-index: -1;
             overflow: hidden;
             background: transparent;
-            /* Forma orgánica de pincelada - bordes irregulares arriba y abajo */
+            /* Pincelada: semi-recta, bordes suavemente ondulados, cola en el extremo derecho */
             clip-path: polygon(
-                0% 28%,
-                0.5% 8%,
-                2% 0%,
-                6% 14%,
-                12% 2%,
-                20% 18%,
-                28% 4%,
-                36% 16%,
-                44% 2%,
-                52% 14%,
-                60% 0%,
-                68% 10%,
-                76% 3%,
-                84% 14%,
-                91% 2%,
-                96% 10%,
-                100% 22%,
-                100% 76%,
-                98% 92%,
-                95% 100%,
-                89% 84%,
-                81% 98%,
-                73% 86%,
-                65% 100%,
-                57% 84%,
-                49% 96%,
-                41% 82%,
-                33% 98%,
-                25% 84%,
-                17% 96%,
-                9% 82%,
-                4% 94%,
-                0.5% 85%,
-                0% 72%
+                0%   22%,
+                0%   78%,
+                4%   85%,
+                12%  88%,
+                25%  84%,
+                40%  90%,
+                55%  85%,
+                70%  88%,
+                82%  83%,
+                90%  76%,
+                95%  65%,
+                98%  54%,
+                100% 50%,
+                98%  46%,
+                95%  35%,
+                90%  24%,
+                82%  17%,
+                70%  12%,
+                55%  15%,
+                40%  10%,
+                25%  16%,
+                12%  12%,
+                4%   15%
             );
         }
 
-        /* La línea de pintura */
+        /* La línea de pintura - con estrías de cerdas */
         .paint-line {
             position: absolute;
             top: 0;
             left: 0;
             width: 0%;
             height: 100%;
-            background: linear-gradient(
-                to right,
-                #D01020 0%,
-                #E41E26 18%,
-                #C81018 35%,
-                #E82028 52%,
-                #D41520 68%,
-                #E41E26 83%,
-                #BF0E18 100%
+            /* Estrías horizontales que simulan las cerdas del pincel */
+            background: repeating-linear-gradient(
+                to bottom,
+                #E82028     0%,
+                #E41E26     10%,
+                #C81018     11%,
+                #E41E26     12%,
+                #E82028     22%,
+                #D41520     23%,
+                #E82028     24%,
+                #E41E26     35%,
+                #BB0F1A     36%,
+                #E41E26     37%,
+                #E82028     48%,
+                #CC1018     49%,
+                #E82028     50%,
+                #E41E26     62%,
+                #C81018     63%,
+                #E41E26     64%,
+                #E82028     76%,
+                #D41520     77%,
+                #E82028     78%,
+                #E41E26     90%,
+                #BF0E18     91%,
+                #E41E26     100%
             );
-            box-shadow: 0 0 45px rgba(228, 30, 38, 0.85);
+            box-shadow: 0 2px 20px rgba(228, 30, 38, 0.7);
             animation: paintContinuous 1.8s ease-in-out forwards;
             animation-delay: 1.2s;
         }
