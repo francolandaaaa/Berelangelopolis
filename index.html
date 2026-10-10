@@ -212,30 +212,74 @@
             padding: 0 20px; /* MUCHO MÁS ESPACIO para que la línea sobresalga */
         }
 
-        /* Contenedor de la línea de pintura - MÁS ANCHO para cubrir todo el texto */
+        /* Contenedor de la línea de pintura */
         .paint-line-container {
             position: absolute;
             top: 52%;
-            left: -25px;  /* Se extiende mucho más a la izquierda */
-            right: -25px; /* Se extiende mucho más a la derecha */
-            height: 0.6em; /* Línea más gruesa */
+            left: -25px;
+            right: -25px;
+            height: 0.95em;
             transform: translateY(-50%);
             z-index: -1;
             overflow: hidden;
-            border-radius: 40px;
             background: transparent;
+            /* Forma orgánica de pincelada - bordes irregulares arriba y abajo */
+            clip-path: polygon(
+                0% 28%,
+                0.5% 8%,
+                2% 0%,
+                6% 14%,
+                12% 2%,
+                20% 18%,
+                28% 4%,
+                36% 16%,
+                44% 2%,
+                52% 14%,
+                60% 0%,
+                68% 10%,
+                76% 3%,
+                84% 14%,
+                91% 2%,
+                96% 10%,
+                100% 22%,
+                100% 76%,
+                98% 92%,
+                95% 100%,
+                89% 84%,
+                81% 98%,
+                73% 86%,
+                65% 100%,
+                57% 84%,
+                49% 96%,
+                41% 82%,
+                33% 98%,
+                25% 84%,
+                17% 96%,
+                9% 82%,
+                4% 94%,
+                0.5% 85%,
+                0% 72%
+            );
         }
 
-        /* La línea de pintura - ANCHO TOTAL que cubre el texto + márgenes */
+        /* La línea de pintura */
         .paint-line {
             position: absolute;
             top: 0;
             left: 0;
             width: 0%;
             height: 100%;
-            background: #E41E26;
-            box-shadow: 0 0 45px rgba(228, 30, 38, 1);
-            border-radius: 40px;
+            background: linear-gradient(
+                to right,
+                #D01020 0%,
+                #E41E26 18%,
+                #C81018 35%,
+                #E82028 52%,
+                #D41520 68%,
+                #E41E26 83%,
+                #BF0E18 100%
+            );
+            box-shadow: 0 0 45px rgba(228, 30, 38, 0.85);
             animation: paintContinuous 1.8s ease-in-out forwards;
             animation-delay: 1.2s;
         }
