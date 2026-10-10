@@ -236,8 +236,8 @@
             background: #E41E26;
             box-shadow: 0 0 45px rgba(228, 30, 38, 1);
             border-radius: 40px;
-            animation: paintContinuous 3s linear forwards;
-            animation-delay: 2.0s;
+            animation: paintContinuous 1.8s ease-in-out forwards;
+            animation-delay: 1.2s;
         }
 
         @keyframes paintContinuous {
@@ -259,8 +259,8 @@
             color: #E41E26;
             filter: drop-shadow(0 0 35px rgba(228, 30, 38, 1));
             z-index: 0;
-            animation: brushContinuous 3s linear forwards;
-            animation-delay: 2.0s;
+            animation: brushContinuous 1.8s ease-in-out forwards;
+            animation-delay: 1.2s;
             pointer-events: none;
             text-shadow: 0 0 30px rgba(228, 30, 38, 0.9);
             opacity: 0;
@@ -305,20 +305,20 @@
         }
 
         /* Delays específicos para cada palabra */
-        .word-1 { animation: revealWord 0.8s ease-out forwards; animation-delay: 0.5s; }
-        .word-2 { animation: revealWord 0.8s ease-out forwards; animation-delay: 0.8s; }
-        .word-3 { animation: revealWord 0.8s ease-out forwards; animation-delay: 1.1s; }
-        .word-4 { animation: revealWord 0.8s ease-out forwards; animation-delay: 1.4s; }
-        .word-5 { animation: revealWord 0.8s ease-out forwards; animation-delay: 1.7s; }
-        .word-6 { animation: revealWord 0.8s ease-out forwards; animation-delay: 2.0s; }
+        .word-1 { animation: revealWord 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards; animation-delay: 0.2s; }
+        .word-2 { animation: revealWord 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards; animation-delay: 0.35s; }
+        .word-3 { animation: revealWord 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards; animation-delay: 0.5s; }
+        .word-4 { animation: revealWord 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards; animation-delay: 0.65s; }
+        .word-5 { animation: revealWord 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards; animation-delay: 0.8s; }
+        .word-6 { animation: revealWord 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards; animation-delay: 0.95s; }
 
         @keyframes revealWord {
             0% {
-                transform: translateY(100%);
+                transform: translateY(100%) scale(0.92);
                 opacity: 0;
             }
             100% {
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
                 opacity: 1;
             }
         }
@@ -2214,8 +2214,8 @@
                                     const delayClass = Array.from(word.classList).find(cls => cls.startsWith('word-'));
                                     if (delayClass) {
                                         const wordNum = delayClass.split('-')[1];
-                                        const delay = (0.3 + (wordNum * 0.3)) + 's';
-                                        word.style.animation = `revealWord 0.8s ease-out forwards ${delay}`;
+                                        const delay = (0.05 + (wordNum * 0.15)) + 's';
+                                        word.style.animation = `revealWord 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards ${delay}`;
                                     }
                                 }, 10);
                             });
